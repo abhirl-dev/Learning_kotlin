@@ -1,5 +1,6 @@
 package com.independent_developer.demo.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
@@ -48,11 +49,19 @@ fun InputField(
         visualTransformation = inputType.visualTransformation,
         keyboardOptions = inputType.keyboardOptions,
         keyboardActions = keyboardAction,
-        label = { Text(text = inputType.name) },
+        label = {
+            Text(
+                text = inputType.name,
+                modifier = Modifier.background(color = Color.Transparent)
+            )
+        },
         leadingIcon = { Icon(imageVector = inputType.icon, contentDescription = null) },
         value = value,
         onValueChange = { value = it },
-        colors = TextFieldDefaults.colors(focusedContainerColor = Color.White)
+        colors = TextFieldDefaults.colors(
+            unfocusedContainerColor = Color.DarkGray,
+            focusedContainerColor = Color.White,
+        )
     )
 }
 

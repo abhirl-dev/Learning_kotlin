@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "com.independent_developer.demo"
+    namespace = "com.independent_developer.learnKotlin"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.independent_developer.demo"
+        applicationId = "com.independent_developer.learnKotlin"
         minSdk = 21
         targetSdk = 33
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -66,4 +66,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }

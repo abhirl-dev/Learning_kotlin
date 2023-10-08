@@ -9,7 +9,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-fun getAllPosts() {
+fun getAllPosts(onSuccess: (data: List<PostsModel>) -> Unit = {}) {
     val retrofit = Retrofit
         .Builder()
         .baseUrl(BASE_URL)
@@ -27,9 +27,7 @@ fun getAllPosts() {
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        for (post in it) {
-                            println(post.id)
-                        }
+                        onSuccess(it)
                     }
                 }
             }
@@ -37,6 +35,5 @@ fun getAllPosts() {
             override fun onFailure(call: Call<List<PostsModel>>, t: Throwable) {
                 println("Error on fetch ==> ${t.localizedMessage}")
             }
-
         })
 }
